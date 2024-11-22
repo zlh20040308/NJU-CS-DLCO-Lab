@@ -1,0 +1,10 @@
+.bsp/
+.cache/
+vsrc/
+.metals/
+.vscode/
+.scala-build/
+obj_dir/
+out/
+build/
+compile_commands.json

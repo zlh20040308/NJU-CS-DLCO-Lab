@@ -1,5 +1,5 @@
 # Project and directory setup
-export PROJECT_NAME = lab1
+export PROJECT_NAME = lab2
 export SRC_DIR = $(PROJECT_NAME)/src
 export TARGET_DIR = ./vsrc/$(PROJECT_NAME)
 

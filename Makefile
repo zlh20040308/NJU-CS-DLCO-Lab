@@ -44,7 +44,7 @@ BIN				:= $(OBJ_DIR)/V$(TOP_NAME)
 ARGS ?= 
 LAB_EXEC		:= ${BIN}
 
-.PHONY: run gdb wave clean com verilog
+.PHONY: run gdb wave clean com verilog format
 
 # Compilation rule
 com: ${VSRC} ${CSRC} $(SRC_AUTO_BIND) $(NVBOARD_ARCHIVE)
@@ -76,3 +76,5 @@ clean:
 	rm -rf ./vsrc/lab*
 	rm -rf ./out
 
+format:
+	mill Lab.reformat	

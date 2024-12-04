@@ -4,7 +4,7 @@ import mill.scalalib._
 import mill.scalalib.scalafmt.ScalafmtModule
 import mill.bsp._
 
-val sourceDir = sys.env.getOrElse("SRC_DIR", "lab1/src")          // 从环境变量读取源代码路径
+val sourceDir = sys.env.getOrElse("SRC_DIR", "lab1/src")
 
 object Lab extends ScalaModule with ScalafmtModule {
   override def scalaVersion = "2.13.12"
@@ -20,7 +20,7 @@ object Lab extends ScalaModule with ScalafmtModule {
   )
 
   override def sources = T.sources {
-    os.pwd / os.RelPath(sourceDir) // 动态设置源代码路径
+    os.pwd / os.RelPath(sourceDir)
   }
 
   def repositoriesTask = T.task {

@@ -28,7 +28,7 @@ $(SRC_AUTO_BIND): $(NXDC_FILES)
 include $(NVBOARD_HOME)/scripts/nvboard.mk
 
 # Verilator flags
-VERILATOR_FLAGS += -I$(VSRC)
+VERILATOR_FLAGS += --top $(TOP_NAME)
 VERILATOR_FLAGS += --trace --debug --cc --exe --build
 VERILATOR_FLAGS += -Wno-lint
 VERILATOR_FLAGS += -Wno-style
@@ -50,8 +50,7 @@ LAB_EXEC		:= ${BIN}
 com: ${VSRC} ${CSRC} $(SRC_AUTO_BIND) $(NVBOARD_ARCHIVE)
 	rm -rf $(OBJ_DIR)
 	rm -rf ./*.vcd
-	$(VERILATOR) $(VERILATOR_FLAGS) \
-		--top-module $(TOP_NAME) $^ \
+	$(VERILATOR) $(VERILATOR_FLAGS) $^ \
 		$(addprefix -CFLAGS , $(CXXFLAGS)) $(addprefix -LDFLAGS , $(LDFLAGS)) \
 		--Mdir $(OBJ_DIR) --exe -o $(abspath $(BIN))
 
